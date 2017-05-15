@@ -18,7 +18,7 @@
 const int WIDTH = 128;
 const int HEIGHT = 64;
 const int PIPE_N = 8;
-const int PIPE_V = 20;
+const int PIPE_V = 35;
 const int PIPE_H = 40;
 
 int i, j;
@@ -72,11 +72,11 @@ void init_bird() {
 }
 
 void init_pipes() {
-	pipes_dx = -4;
+	pipes_dx = -5;
 	for (i = 0; i < PIPE_N; i++) {
 		if (i > 0) pipe_x[i] = pipe_x[i - 1] + PIPE_H;
 		else pipe_x[i] = 200;
-		pipe_y[i] = rand() % (HEIGHT - 30) + 10;
+		pipe_y[i] = rand() % (HEIGHT - 50) + 10;
 	}
 }
 
@@ -108,73 +108,73 @@ void draw_bird() {
 
 void draw_bird() {
 	glcd_putpixel(bird_x, bird_y, 2);
-	glcd_putpixel(bird_x + 1,bird_y - 1,2);
-    glcd_putpixel(bird_x + 2,bird_y - 1,2);
-    glcd_putpixel(bird_x + 3,bird_y - 1,2);
-    glcd_putpixel(bird_x + 3,bird_y - 2,2);
-    glcd_putpixel(bird_x + 4,bird_y - 1,2);  
-    glcd_putpixel(bird_x + 4,bird_y - 3,2);
-    glcd_putpixel(bird_x + 5,bird_y - 3,2);
-    glcd_putpixel(bird_x + 6,bird_y - 4,2);
-    glcd_putpixel(bird_x + 7,bird_y - 4,2);
-    glcd_putpixel(bird_x + 8,bird_y - 4,2);
-    glcd_putpixel(bird_x + 9,bird_y - 4,2);
-    glcd_putpixel(bird_x + 10,bird_y - 4,2);
-    glcd_putpixel(bird_x + 11,bird_y - 4,2);
-    glcd_putpixel(bird_x + 12,bird_y - 4,2);
-    glcd_putpixel(bird_x + 11,bird_y - 3,2);
-    glcd_putpixel(bird_x + 13,bird_y - 3,2); 
-    glcd_putpixel(bird_x + 14,bird_y - 2,2);
-    glcd_putpixel(bird_x + 10,bird_y - 2,2);
-    glcd_putpixel(bird_x + 10,bird_y - 1,2);
-    glcd_putpixel(bird_x + 10,bird_y,2);
-    glcd_putpixel(bird_x + 13,bird_y - 1,2);
-    glcd_putpixel(bird_x + 13,bird_y,2);
-    glcd_putpixel(bird_x + 15,bird_y - 1,2);  
-    glcd_putpixel(bird_x + 15,bird_y,2);
-    glcd_putpixel(bird_x + 15,bird_y + 1,2);
-    glcd_putpixel(bird_x + 11,bird_y +1,2);
-    glcd_putpixel(bird_x + 11,bird_y +2,2);
-    glcd_putpixel(bird_x + 12,bird_y +2,2);
-    glcd_putpixel(bird_x + 13,bird_y +2,2);
-    glcd_putpixel(bird_x + 14,bird_y +2,2);
-    glcd_putpixel(bird_x + 15,bird_y +2,2);
-    glcd_putpixel(bird_x + 16,bird_y +2,2);
-    glcd_putpixel(bird_x + 10,bird_y +3,2);
-    glcd_putpixel(bird_x + 17,bird_y +3,2);
-    glcd_putpixel(bird_x + 9,bird_y +4,2);
-    glcd_putpixel(bird_x + 11,bird_y +4,2);
-    glcd_putpixel(bird_x + 12,bird_y +4,2);
-    glcd_putpixel(bird_x + 13,bird_y +4,2);
-    glcd_putpixel(bird_x + 14,bird_y +4,2);
-    glcd_putpixel(bird_x + 15,bird_y +4,2);
-    glcd_putpixel(bird_x + 16,bird_y +4,2);
-    glcd_putpixel(bird_x + 10,bird_y +5,2);
-    glcd_putpixel(bird_x + 16,bird_y +5,2);    
-    glcd_putpixel(bird_x + 11,bird_y +6,2);
-    glcd_putpixel(bird_x + 12,bird_y +6,2);
-    glcd_putpixel(bird_x + 13,bird_y +6,2);
-    glcd_putpixel(bird_x + 14,bird_y +6,2);
-    glcd_putpixel(bird_x + 15,bird_y +6,2);
-    glcd_putpixel(bird_x + 5,bird_y +7,2);
-    glcd_putpixel(bird_x + 6,bird_y +7,2);
-    glcd_putpixel(bird_x + 7,bird_y +7,2);
-    glcd_putpixel(bird_x + 8,bird_y +7,2);
-    glcd_putpixel(bird_x + 9,bird_y +7,2);
-    glcd_putpixel(bird_x + 10,bird_y +7,2);
-    glcd_putpixel(bird_x + 4,bird_y +6,2);
-    glcd_putpixel(bird_x + 3,bird_y +6,2);
-    glcd_putpixel(bird_x + 2,bird_y +5,2);
-    glcd_putpixel(bird_x + 2,bird_y +4,2);
-    glcd_putpixel(bird_x + 3,bird_y +4,2);
-    glcd_putpixel(bird_x + 4,bird_y +4,2);
-    glcd_putpixel(bird_x + 1,bird_y +3,2);
-    glcd_putpixel(bird_x + 5,bird_y +3,2);
-    glcd_putpixel(bird_x,bird_y +2,2);
-    glcd_putpixel(bird_x + 6,bird_y +2,2);
-    glcd_putpixel(bird_x + 6,bird_y +1,2);
-    glcd_putpixel(bird_x,bird_y +1,2);
-    glcd_putpixel(bird_x + 5,bird_y,2);
+	glcd_putpixel(bird_x + 1, bird_y - 1,2);
+    glcd_putpixel(bird_x + 2, bird_y - 1,2);
+    glcd_putpixel(bird_x + 3, bird_y - 1,2);
+    glcd_putpixel(bird_x + 3, bird_y - 2,2);
+    glcd_putpixel(bird_x + 4, bird_y - 1,2);  
+    glcd_putpixel(bird_x + 4, bird_y - 3,2);
+    glcd_putpixel(bird_x + 5, bird_y - 3,2);
+    glcd_putpixel(bird_x + 6, bird_y - 4,2);
+    glcd_putpixel(bird_x + 7, bird_y - 4,2);
+    glcd_putpixel(bird_x + 8, bird_y - 4,2);
+    glcd_putpixel(bird_x + 9, bird_y - 4,2);
+    glcd_putpixel(bird_x + 10, bird_y - 4,2);
+    glcd_putpixel(bird_x + 11, bird_y - 4,2);
+    glcd_putpixel(bird_x + 12, bird_y - 4,2);
+    glcd_putpixel(bird_x + 11, bird_y - 3,2);
+    glcd_putpixel(bird_x + 13, bird_y - 3,2); 
+    glcd_putpixel(bird_x + 14, bird_y - 2,2);
+    glcd_putpixel(bird_x + 10, bird_y - 2,2);
+    glcd_putpixel(bird_x + 10, bird_y - 1,2);
+    glcd_putpixel(bird_x + 10, bird_y, 2);
+    glcd_putpixel(bird_x + 13, bird_y - 1, 2);
+    glcd_putpixel(bird_x + 13, bird_y, 2);
+    glcd_putpixel(bird_x + 15, bird_y - 1, 2);  
+    glcd_putpixel(bird_x + 15, bird_y, 2);
+    glcd_putpixel(bird_x + 15, bird_y + 1, 2);
+    glcd_putpixel(bird_x + 11, bird_y + 1, 2);
+    glcd_putpixel(bird_x + 11, bird_y + 2, 2);
+    glcd_putpixel(bird_x + 12, bird_y + 2, 2);
+    glcd_putpixel(bird_x + 13, bird_y + 2, 2);
+    glcd_putpixel(bird_x + 14, bird_y + 2, 2);
+    glcd_putpixel(bird_x + 15, bird_y + 2, 2);
+    glcd_putpixel(bird_x + 16, bird_y + 2, 2);
+    glcd_putpixel(bird_x + 10, bird_y + 3, 2);
+    glcd_putpixel(bird_x + 17, bird_y + 3, 2);
+    glcd_putpixel(bird_x + 9, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 11, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 12, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 13, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 14, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 15, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 16, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 10, bird_y + 5, 2);
+    glcd_putpixel(bird_x + 16, bird_y + 5, 2);    
+    glcd_putpixel(bird_x + 11, bird_y + 6, 2);
+    glcd_putpixel(bird_x + 12, bird_y + 6, 2);
+    glcd_putpixel(bird_x + 13, bird_y + 6, 2);
+    glcd_putpixel(bird_x + 14, bird_y + 6, 2);
+    glcd_putpixel(bird_x + 15, bird_y + 6, 2);
+    glcd_putpixel(bird_x + 5, bird_y + 7, 2);
+    glcd_putpixel(bird_x + 6, bird_y + 7, 2);
+    glcd_putpixel(bird_x + 7, bird_y + 7, 2);
+    glcd_putpixel(bird_x + 8, bird_y + 7, 2);
+    glcd_putpixel(bird_x + 9, bird_y + 7, 2);
+    glcd_putpixel(bird_x + 10, bird_y + 7, 2);
+    glcd_putpixel(bird_x + 4, bird_y + 6, 2);
+    glcd_putpixel(bird_x + 3, bird_y + 6, 2);
+    glcd_putpixel(bird_x + 2, bird_y + 5, 2);
+    glcd_putpixel(bird_x + 2, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 3, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 4, bird_y + 4, 2);
+    glcd_putpixel(bird_x + 1, bird_y + 3, 2);
+    glcd_putpixel(bird_x + 5, bird_y + 3, 2);
+    glcd_putpixel(bird_x, bird_y + 2, 2);
+    glcd_putpixel(bird_x + 6, bird_y + 2, 2);
+    glcd_putpixel(bird_x + 6, bird_y + 1, 2);
+    glcd_putpixel(bird_x, bird_y + 1, 2);
+    glcd_putpixel(bird_x + 5, bird_y, 2);
     
 }
 
@@ -196,7 +196,7 @@ void draw_pipes() {
 			glcd_line(pipe_x[i] + 6, pipe_y[i] - 5, pipe_x[i] + 6, pipe_y[i]);
 			glcd_line(pipe_x[i] - 6, pipe_y[i] - 5, pipe_x[i] + 6, pipe_y[i] - 5);
 			glcd_line(pipe_x[i] - 6, pipe_y[i], pipe_x[i] + 6, pipe_y[i]);
-			
+			//lower pipe
 			glcd_line(pipe_x[i] - 5, HEIGHT, pipe_x[i] - 5, pipe_y[i] + 5 + PIPE_V);
 			glcd_line(pipe_x[i] + 5, HEIGHT, pipe_x[i] + 5, pipe_y[i] + 5 + PIPE_V);
 			glcd_line(pipe_x[i] - 6, pipe_y[i] + 5 + PIPE_V, pipe_x[i] - 6, pipe_y[i] + PIPE_V);
@@ -235,10 +235,13 @@ void draw() {
 }
 
 int check() {
-	if (bird_y >= HEIGHT) return 1;
+	if (bird_y + 4 >= HEIGHT) return 1;
 	for (i = 0; i < PIPE_N; i++) {
-		if (pipe_x[i] >= bird_x - 2 && pipe_x[i] <= bird_x + 2) {
+		/*if (pipe_x[i] - 3 >= bird_x - 2 && pipe_x[i] <= bird_x + 2) {
 			if (bird_y <= pipe_y[i] || bird_y >= pipe_y[i] + PIPE_V) return 1;
+		}*/
+		if (bird_x + 16 >= pipe_x[i] - 9 && bird_x - 16 <= pipe_x[i] + 9) {
+			if (bird_y - 1 <= pipe_y[i] || bird_y + 1 >= pipe_y[i] + PIPE_V) return 1;
 		}
 	}
 	return 0;
@@ -293,7 +296,7 @@ void main() {
     ok = 1;
     // glcd_putimagef(0, 0, imagen3, GLCD_PUTCOPY);
     // delay_ms(1000);
-    glcd_outtextxyf(WIDTH / 2 - 35, HEIGHT / 2 - 10, "Flappy Point");
+    glcd_outtextxyf(WIDTH / 2 - 25, HEIGHT / 2 - 10, "Fat Bird");
     glcd_outtextxyf(WIDTH / 2 - 50, HEIGHT / 2 + 10, "Presiona el boton");
     while (true) {
     	btn = read_adc();
